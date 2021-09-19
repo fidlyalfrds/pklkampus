@@ -24,12 +24,12 @@ class BarangController extends Controller
 
 
         $Barang = barang::select('barangs.id','nama_barang','harga','total_stock',
-            db::raw('(barangs.size_s) - ifnull(barang_keluars.size_s,0)  as size_s'),
-            db::raw('(barangs.size_m) - ifnull(barang_keluars.size_m,0)  as size_m'),
-            db::raw('(barangs.size_l) - ifnull(barang_keluars.size_l,0)  as size_l'),
-            db::raw('(barangs.size_xl) - ifnull(barang_keluars.size_xl,0)  as size_xl'),
-            db::raw('(barangs.size_xxl) - ifnull(barang_keluars.size_xxl,0)  as size_xxl'),
-            db::raw('(barangs.total_stock) - ifnull(barang_keluars.jumlah,0)  as total_stock')
+            db::raw('(barangs.size_s) - ifnull(barang_keluars.size_s,0) + ifnull(barang_masuks.size_s,0)  as size_s'),
+            db::raw('(barangs.size_m) - ifnull(barang_keluars.size_m,0) + ifnull(barang_masuks.size_m,0)  as size_m'),
+            db::raw('(barangs.size_l) - ifnull(barang_keluars.size_l,0) + ifnull(barang_masuks.size_l,0)  as size_l'),
+            db::raw('(barangs.size_xl) - ifnull(barang_keluars.size_xl,0) + ifnull(barang_masuks.size_xl,0)  as size_xl'),
+            db::raw('(barangs.size_xxl) - ifnull(barang_keluars.size_xxl,0) + ifnull(barang_masuks.size_xxl,0)  as size_xxl'),
+            db::raw('(barangs.size_s) - ifnull(barang_keluars.size_s,0) + ifnull(barang_masuks.size_s,0) + (barangs.size_m) - ifnull(barang_keluars.size_m,0) + ifnull(barang_masuks.size_m,0) + (barangs.size_l) - ifnull(barang_keluars.size_l,0) + ifnull(barang_masuks.size_l,0) + (barangs.size_xl) - ifnull(barang_keluars.size_xl,0) + ifnull(barang_masuks.size_xl,0) + (barangs.size_xxl) - ifnull(barang_keluars.size_xxl,0) + ifnull(barang_masuks.size_xxl,0)    as total_stock')
 
             // db::raw('(barangs.size_s) + (barang_masuks.size_s)  as size_s'),
             // db::raw('(barangs.size_m) + (barang_masuks.size_m)  as size_m'),
@@ -46,6 +46,15 @@ class BarangController extends Controller
                 sum(jumlah) jumlah from barang_keluars group by barang_id) barang_keluars'), 
                 function($join){
                     $join->on('barangs.id', '=', 'barang_keluars.barang_id');
+                })
+                ->leftJoin(db::raw('(select barang_id, sum(size_s) size_s,
+                sum(size_m) size_m,
+                sum(size_l) size_l,
+                sum(size_xl) size_xl,
+                sum(size_xxl) size_xxl
+                from barang_masuks group by barang_id) barang_masuks'), 
+                function($join){
+                    $join->on('barangs.id', '=', 'barang_masuks.barang_id');
                 })->get();
                 // dd($Barang);
         return view('barang.index', compact('Barang'));
