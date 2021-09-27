@@ -30,25 +30,24 @@ Route::get('/editpembelian/{id}','PembelianController@edit')->name('editpembelia
 Route::get('/hapuspembelian/{id}','PembelianController@destroy')->name('hapuspembelian');
 Route::get('export','PembelianController@export');
 
-//Route Kategori
+//Route Reseller
 Route::resource('reseller','ResellerController');
 Route::get('/editreseller/{id}','ResellerController@edit')->name('editreseller');
 Route::get('/hapusreseller/{id}','ResellerController@destroy')->name('hapusreseller');
+Route::get('exportreseller','ResellerController@export');
 
-//Route bahan
-Route::resource('bahan','BahanController');
-Route::get('/editbahan/{id}','BahanController@edit')->name('editbahan');
-Route::get('/hapusbahan/{id}','BahanController@destroy')->name('hapusbahan');
 
 //Route Barang
 Route::resource('barang','BarangController');
 Route::get('/editbarang/{id}','BarangController@edit')->name('editbarang');
 Route::post('/barang/hapus/{id}','BarangController@destroy')->name('barang.hapus');
+Route::get('exportbarang','BarangController@export');
 
 //Route Barang masuk
 Route::resource('barangmasuk','BarangMasukController');
 Route::get('/editbarangmasuk/{id}','BarangMasukController@edit')->name('editbarangmasuk');
 Route::get('/hapusbarangmasuk/{id}','BarangMasukController@destroy')->name('hapusbarangkeluar');
+Route::get('exportmasuk','BarangMasukController@export');
 
 //Route Barang Keluar
 Route::resource('barangkeluar','BarangKeluarController');

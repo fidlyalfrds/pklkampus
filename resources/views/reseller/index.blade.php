@@ -6,7 +6,7 @@
             <div class="card-body">
                 <div class="card">
                     <div class="card-header"><b>Data Reseller</b>
-                        <a href="export" class="float-right btn btn-secondary btn-floating"> Export </a>
+                        <a href="exportreseller" class="float-right btn btn-secondary btn-floating"> Export </a>
                         <a href="{{ route('reseller.create') }}" class="float-right btn btn-secondary btn-floating"> Tambah Data</a>
                     </div>
                         <div class="row">

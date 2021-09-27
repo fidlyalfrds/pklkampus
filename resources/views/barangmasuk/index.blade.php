@@ -6,7 +6,7 @@
             <div class="card-body">
                 <div class="card">
                     <div class="card-header">Data Barang Masuk
-                        <a href="exportexcel" class="float-right btn btn-secondary btn-floating"> Export </a>
+                        <a href="exportmasuk" class="float-right btn btn-secondary btn-floating"> Export </a>
                         <a href="{{ route('barangmasuk.create') }}" class="float-right btn btn-secondary btn-floating"> Tambah Data</a>
                     </div>
                         <div class="row">
@@ -42,7 +42,11 @@
                                                     <td>{{ $data->size_xxl }}</td>  
                                                     <td>{{ $data->total_stock }}</td>
                                                     <td>
+                                                    <form action="{{ route('barangmasuk.destroy', $data->id) }}"method="POST">
+                                                    @csrf @method('delete')
                                                     <a href="{{ route('barangmasuk.edit',$data->id) }}" class="btn btn-primary">Edit</a>
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                    </form>
                                                     </td>
                                                 </tr>
                                                 @endforeach

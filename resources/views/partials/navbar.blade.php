@@ -1,4 +1,4 @@
-                <nav class="top-toolbar navbar navbar-desktop flex-nowrap">
+<!--                 <nav class="top-toolbar navbar navbar-desktop flex-nowrap">
                     <ul class="navbar-nav nav-right">
                         <li class="nav-item dropdown">
                             <a class="nav-link nav-pill user-avatar" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -26,4 +26,4 @@
                         </div>
                         <button type="submit" class="d-none">Submit</button>
                     </form>
-                </nav>
+                </nav> -->

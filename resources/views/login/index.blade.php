@@ -6,9 +6,10 @@
             <div class="card">
                 <div class="card-body">
                     <a href="index.html" class="brand text-center d-block m-b-20">
-                        <img src="{{ asset('admin/assets/img/qt-logo%402x.png') }}" alt="QuantumPro Logo" />
+                        <img src="{{ asset('admin/assets/img/WhatsApp_Image_2021-08-31_at_12.27.13-removebg-preview.png') }}"
+                        style="width: 160px; height: 80px" alt="QuantumPro Logo" />
                     </a>
-                    <h5 class="sign-in-heading text-center m-b-20">Sign in to your account</h5>
+                    <h5 class="sign-in-heading text-center m-b-20">Sign In</h5>
                     <div class="form-group" data-validate="Valid email is required: ex@abc.xyz">
                         <label for="email" class="sr-only">Email address</label>
                         <input type="email" id="email" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email address"  value="{{ old('email') }}" autofocus required>
@@ -29,7 +30,7 @@
                     @endif
                     
                     <button class="btn btn-primary btn-rounded btn-floating btn-lg btn-block" type="submit">Sign In</button>
-                 <p class="text-muted m-t-25 m-b-0 p-0">Don't have an account yet?<a href="auth.register.html"> Create an account</a></p>
+                 <!-- <p class="text-muted m-t-25 m-b-0 p-0">Don't have an account yet?<a href="auth.register.html"> Create an account</a></p> -->
                 </div>
 
             </div>

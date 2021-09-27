@@ -31,6 +31,7 @@
             <li><a href="{{route('barangkeluar.index')}}"><i class="icon dripicons-to-do"></i><span>Barang Keluar</span></a></li>
             <li><a href="{{route('preorder.index')}}"><i class="icon dripicons-to-do"></i><span>Pre Order</span></a></li>
             <li><a href="{{route('reseller.index')}}"><i class="icon dripicons-to-do"></i><span>Reseller</span></a></li>
+            <li><a href="{{route('logout')}}"><i class="icon dripicons-lock-open"></i><span>Sign Out</span></a></li>
           </ul>
         </nav>
       </div>

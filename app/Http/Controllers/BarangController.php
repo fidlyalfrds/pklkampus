@@ -7,6 +7,8 @@ use App\barang_keluar;
 use App\barang_masuk;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cache;
+use App\Exports\BarangExport;
+use Maatwebsite\Excel\Facades\Excel;
 use DataTables;
 use DB;
 class BarangController extends Controller
@@ -18,26 +20,13 @@ class BarangController extends Controller
      */
     public function index(Request $request)
     {
-        // $Barang = barang::all();
-        // $keluar = barang_keluar::all();
-        // return view('barang.index', compact('Barang','Keluar'));
-
-
         $Barang = barang::select('barangs.id','nama_barang','harga','total_stock',
             db::raw('(barangs.size_s) - ifnull(barang_keluars.size_s,0) + ifnull(barang_masuks.size_s,0)  as size_s'),
             db::raw('(barangs.size_m) - ifnull(barang_keluars.size_m,0) + ifnull(barang_masuks.size_m,0)  as size_m'),
             db::raw('(barangs.size_l) - ifnull(barang_keluars.size_l,0) + ifnull(barang_masuks.size_l,0)  as size_l'),
             db::raw('(barangs.size_xl) - ifnull(barang_keluars.size_xl,0) + ifnull(barang_masuks.size_xl,0)  as size_xl'),
             db::raw('(barangs.size_xxl) - ifnull(barang_keluars.size_xxl,0) + ifnull(barang_masuks.size_xxl,0)  as size_xxl'),
-            db::raw('(barangs.size_s) - ifnull(barang_keluars.size_s,0) + ifnull(barang_masuks.size_s,0) + (barangs.size_m) - ifnull(barang_keluars.size_m,0) + ifnull(barang_masuks.size_m,0) + (barangs.size_l) - ifnull(barang_keluars.size_l,0) + ifnull(barang_masuks.size_l,0) + (barangs.size_xl) - ifnull(barang_keluars.size_xl,0) + ifnull(barang_masuks.size_xl,0) + (barangs.size_xxl) - ifnull(barang_keluars.size_xxl,0) + ifnull(barang_masuks.size_xxl,0)    as total_stock')
-
-            // db::raw('(barangs.size_s) + (barang_masuks.size_s)  as size_s'),
-            // db::raw('(barangs.size_m) + (barang_masuks.size_m)  as size_m'),
-            // db::raw('(barangs.size_l) + (barang_masuks.size_l)  as size_l'),
-            // db::raw('(barangs.size_xl) + (barang_masuks.size_xl)  as size_xl'),
-            // db::raw('(barangs.size_xxl) + (barang_masuks.size_xxl)  as size_xxl'),
-            // db::raw('(barangs.total_stock) + (barang_masuks.total_stock)  as total_stock')
-        )
+            db::raw('(barangs.size_s) - ifnull(barang_keluars.size_s,0) + ifnull(barang_masuks.size_s,0) + (barangs.size_m) - ifnull(barang_keluars.size_m,0) + ifnull(barang_masuks.size_m,0) + (barangs.size_l) - ifnull(barang_keluars.size_l,0) + ifnull(barang_masuks.size_l,0) + (barangs.size_xl) - ifnull(barang_keluars.size_xl,0) + ifnull(barang_masuks.size_xl,0) + (barangs.size_xxl) - ifnull(barang_keluars.size_xxl,0) + ifnull(barang_masuks.size_xxl,0)    as total_stock'))
                 ->leftJoin(db::raw('(select barang_id, sum(size_s) size_s,
                 sum(size_m) size_m,
                 sum(size_l) size_l,
@@ -59,6 +48,11 @@ class BarangController extends Controller
                 // dd($Barang);
         return view('barang.index', compact('Barang'));
         //https://stackoverflow.com/questions/67346233/laravel-update-stock-value-after-order-placement
+    }
+
+    public function export()
+    {
+        return Excel::download(new BarangExport, 'Barang Stock.xlsx');
     }
 
     /**

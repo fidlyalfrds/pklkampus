@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\reseller;
 use App\barang;
+use App\Exports\ResellerExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 
 class ResellerController extends Controller
@@ -17,6 +19,11 @@ class ResellerController extends Controller
     {
         $Reseller = reseller::with('barang')->get();
         return view('reseller.index', compact('Reseller'));
+    }
+
+    public function export()
+    {
+        return Excel::download(new ResellerExport, 'Reseller.xlsx');
     }
 
     /**

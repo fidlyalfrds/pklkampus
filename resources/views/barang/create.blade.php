@@ -12,7 +12,7 @@
 
 			  		<div class="form-group {{ $errors->has('nama_barang') ? ' has-error' : '' }}">
 			  			<label class="control-label">Nama Barang</label>	
-			  			<input type="text" name="nama_barang" class="form-control"  required>
+			  			<input type="text" name="nama_barang" class="form-control"  >
 			  			@if ($errors->has('nama_barang'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('nama_barang') }}</strong>
@@ -22,7 +22,7 @@
 
 			  		<div class="form-group {{ $errors->has('harga') ? ' has-error' : '' }}">
 			  			<label class="control-label">Harga</label>	
-			  			<input type="number" name="harga" class="form-control"  required>
+			  			<input type="number" name="harga" class="form-control"  >
 			  			@if ($errors->has('harga'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('harga') }}</strong>
@@ -32,7 +32,7 @@
 
 			  		<div class="form-group {{ $errors->has('size_s') ? ' has-error' : '' }}">
 			  			<label class="control-label">size_s</label>	
-			  			<input type="number" name="size_s" class="form-control"  required>
+			  			<input type="number" name="size_s" class="form-control"  >
 			  			@if ($errors->has('size_s'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('size_s') }}</strong>
@@ -42,7 +42,7 @@
 
 			  		<div class="form-group {{ $errors->has('size_m') ? ' has-error' : '' }}">
 			  			<label class="control-label">size_m</label>	
-			  			<input type="number" name="size_m" class="form-control"  required>
+			  			<input type="number" name="size_m" class="form-control"  >
 			  			@if ($errors->has('size_m'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('size_m') }}</strong>
@@ -52,7 +52,7 @@
 
 			  		<div class="form-group {{ $errors->has('size_l') ? ' has-error' : '' }}">
 			  			<label class="control-label">size_l</label>	
-			  			<input type="number" name="size_l" class="form-control"  required>
+			  			<input type="number" name="size_l" class="form-control"  >
 			  			@if ($errors->has('size_l'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('size_l') }}</strong>
@@ -62,7 +62,7 @@
 
 			  		<div class="form-group {{ $errors->has('size_xl') ? ' has-error' : '' }}">
 			  			<label class="control-label">size_xl</label>	
-			  			<input type="number" name="size_xl" class="form-control"  required>
+			  			<input type="number" name="size_xl" class="form-control"  >
 			  			@if ($errors->has('size_xl'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('size_xl') }}</strong>
@@ -72,7 +72,7 @@
 
 			  		<div class="form-group {{ $errors->has('size_xxl') ? ' has-error' : '' }}">
 			  			<label class="control-label">size_xxl</label>	
-			  			<input type="number" name="size_xxl" class="form-control"  required>
+			  			<input type="number" name="size_xxl" class="form-control"  >
 			  			@if ($errors->has('size_xxl'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('size_xxl') }}</strong>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\barang_masuk;
 use App\barang;
+use App\Exports\MasukExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 
 class BarangMasukController extends Controller
@@ -17,6 +19,11 @@ class BarangMasukController extends Controller
     {
         $Masuk = barang_masuk::all();
         return view('barangmasuk.index',compact('Masuk'));
+    }
+
+    public function export()
+    {
+        return Excel::download(new MasukExport, 'Barang Masuk.xlsx');
     }
 
     /**
@@ -92,8 +99,10 @@ class BarangMasukController extends Controller
      * @param  \App\barang_masuk  $barang_masuk
      * @return \Illuminate\Http\Response
      */
-    public function destroy(barang_masuk $barang_masuk)
+    public function destroy($id)
     {
-        //
+        $Masuk = barang_masuk::findOrFail($id);
+        $Masuk->delete();
+        return redirect()->route('barangmasuk.index');
     }
 }

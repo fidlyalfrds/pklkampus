@@ -6,6 +6,7 @@
             <div class="card-body">
                 <div class="card">
                     <div class="card-header">Data Stock Barang
+                        <a href="exportbarang" class="float-right btn btn-secondary btn-floating"> Export </a>
                         <a href="{{ route('barang.create') }}" class="float-right btn btn-secondary btn-floating"> Tambah Data</a>
                     </div>
                         <div class="row">
