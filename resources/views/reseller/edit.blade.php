@@ -23,12 +23,15 @@
                         @endif
 			  		</div>
 
-			  		<div class="form-group {{ $errors->has('barang_id') ? ' has-error' : '' }}">
+			  		<!-- <div class="form-group {{ $errors->has('barang_id') ? ' has-error' : '' }}">
 			  			<label class="control-label">Nama Barang</label>	
-			  			<select type="text" name="barang_id" class="form-control"  value="{{ $Reseller->barang_id}}"  required>
-			  				<option>-Barang-</option>
+			  			<select type="text" name="barang_id" class="form-control" required>
 			  					@foreach($Barang as $data)
-			  				<option value="{{ $data->id }}">{{ $data->nama_barang}}</option>
+			  					@if(old('barang_id') == $data->id)
+			  				<option value="{{ $data->id }}" selected>{{ $data->nama_barang}}</option>
+			  					@else
+			  					<option value="{{ $data->id }}">{{ $data->nama_barang}}</option>
+			  					@endif
 			  					@endforeach
 			  			</select>
 			  			@if ($errors->has('barang_id'))
@@ -37,7 +40,7 @@
                             </span>
                         @endif
 			  		</div>
-
+ -->
 			  		<div class="form-group {{ $errors->has('stock_awal') ? ' has-error' : '' }}">
 			  			<label class="control-label">stock_awal</label>	
 			  			<input type="number" name="stock_awal" class="form-control" value="{{ $Reseller->stock_awal }}"  required>
@@ -59,7 +62,7 @@
 			  		</div>
 
 			  		<div class="form-group">
-			  			<button type="submit" class="btn btn-primary" id="sweetalert_demo_6">Selesai</button>
+			  			<button type="submit" class="btn btn-primary">Selesai</button>
 			  		</div>
 			  	</form>
 			  </div>

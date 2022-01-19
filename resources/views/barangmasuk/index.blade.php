@@ -44,8 +44,8 @@
                                                     <td>
                                                     <form action="{{ route('barangmasuk.destroy', $data->id) }}"method="POST">
                                                     @csrf @method('delete')
-                                                    <a href="{{ route('barangmasuk.edit',$data->id) }}" class="btn btn-primary">Edit</a>
-                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                    <!-- <a href="{{ route('barangmasuk.edit',$data->id) }}" class="btn btn-primary">Edit</a> -->
+                                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Ingin Menghapus Data?')">Delete</button>
                                                     </form>
                                                     </td>
                                                 </tr>
@@ -61,6 +61,10 @@
             </div>
         </div>
     </div>
+    @include('sweetalert::alert')
 @endsection
 
 <!-- https://www.positronx.io/laravel-datatables-example/ -->
+<!-- http://repository.unpas.ac.id/26794/8/12%20-%20Bab%204%20113040194.pdf
+https://elibrary.unikom.ac.id/id/eprint/940/11/14.10113084_REDI%20ADRITO%20JUPERTA_BAB%204.pdf -->
+<!-- https://elib.unikom.ac.id/files/disk1/561/jbptunikompp-gdl-selviameri-28044-9-14.uniko-v.pdf -->

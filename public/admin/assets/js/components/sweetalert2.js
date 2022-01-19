@@ -72,10 +72,13 @@
         customClass: 'animated tada'
       })
     });
+
+
     //== SweetAlert Demo 8
-    $('#sweetalert_demo_8').on('click', function(e) {
+    $('.sweetalert_demo_8').on('click', function(e) {
+      id = e.target.dataset.id;
       swal({
-        title: 'Are you sure?',
+        title: 'Are you sure?'+id,
         text: "You won't be able to revert this!",
         type: 'warning',
         showCancelButton: true,
@@ -92,6 +95,8 @@
         }
       })
     });
+
+
     //== SweetAlert Demo 9
     $('#sweetalert_demo_9').on('click', function(e) {
       swal({

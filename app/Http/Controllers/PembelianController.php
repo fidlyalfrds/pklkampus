@@ -59,11 +59,12 @@ class PembelianController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'nama' => 'required',
-            'jumlah' => 'required|min:1',
-            'harga' => 'required',
-            'tanggal_beli' => 'required'
+        $validatedData = $request->validate([
+            'nama' => ['required'],
+            'jumlah' => ['required'],
+            'harga' => ['required'],
+            'total' => ['nullable'],
+            'tanggal_beli' => ['nullable']
         ]);
 
         $Pembelian = new pembelian;
@@ -73,7 +74,7 @@ class PembelianController extends Controller
         $Pembelian->total=($Pembelian->jumlah * $Pembelian->harga);
         $Pembelian->tanggal_beli = $request->tanggal_beli;
         $Pembelian->save();
-        return redirect()->route('pembelian.index');
+        return redirect()->route('pembelian.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     /**
@@ -121,7 +122,7 @@ class PembelianController extends Controller
         $Pembelian->total=($Pembelian->jumlah * $Pembelian->harga);
         $Pembelian->tanggal_beli = $request->tanggal_beli;
         $Pembelian->save();
-        return redirect()->route('pembelian.index');
+        return redirect()->route('pembelian.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     /**

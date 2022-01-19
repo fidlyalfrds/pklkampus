@@ -60,7 +60,7 @@ class ResellerController extends Controller
         $Reseller->terjual = $request->terjual;
         $Reseller->stock_akhir=($Reseller->stock_awal - $Reseller->terjual);
         $Reseller->save();
-        return redirect()->route('reseller.index');
+        return redirect()->route('reseller.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     /**
@@ -98,18 +98,16 @@ class ResellerController extends Controller
     {
         $this->validate($request,[
         'nama_reseller' => 'required',
-        'barang_id' => 'required',
         'stock_awal'=>'required',
         'terjual' => 'required'
         ]);
         $Reseller = reseller::findOrFail($id);
         $Reseller->nama_reseller = $request->nama_reseller;
-        $Reseller->barang_id = $request->barang_id;
         $Reseller->stock_awal = $request->stock_awal;
         $Reseller->terjual = $request->terjual;
         $Reseller->stock_akhir=($Reseller->stock_awal - $Reseller->terjual);
         $Reseller->save();
-        return redirect()->route('reseller.index');
+        return redirect()->route('reseller.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     /**

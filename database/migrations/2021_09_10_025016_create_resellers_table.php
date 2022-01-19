@@ -15,12 +15,12 @@ class CreateResellersTable extends Migration
     {
         Schema::create('resellers', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_reseller');
+            $table->string('nama_reseller',50);
             $table->unsignedBigInteger('barang_id')->nullable();
             $table->foreign('barang_id')->references('id')->on('barangs')->onDelete('CASCADE');
-            $table->string('stock_awal');
-            $table->string('terjual');
-            $table->string('stock_akhir');
+            $table->integer('stock_awal');
+            $table->integer('terjual');
+            $table->integer('stock_akhir');
             $table->timestamps();
         });
     }

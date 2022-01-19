@@ -13,12 +13,15 @@
         			{{ csrf_field() }}
         			<input type="hidden" name="id" value="{{ request()->get('id') }}">
 
-			  		<div class="form-group {{ $errors->has('barang_id') ? ' has-error' : '' }}">
-			  			<label class="control-label">Nama barang</label>	
+			  		<!-- <div class="form-group {{ $errors->has('barang_id') ? ' has-error' : '' }}">
+			  			<label class="control-label">Nama Barang</label>	
 			  			<select type="text" name="barang_id" class="form-control"  value="{{ $Keluar->barang_id}}"  required>
-			  				<option>-barang-</option>
 			  					@foreach($Barang as $data)
-			  				<option value="{{ $data->id }}">{{ $data->nama_barang}}</option>
+			  					@if(old('barang_id') == $data->id)
+			  					<option value="{{ $data->id }}" selected>{{ $data->nama_barang}}</option>
+			  					@else
+			  					<option value="{{ $data->id }}">{{ $data->nama_barang}}</option>
+			  					@endif
 			  					@endforeach
 			  			</select>
 			  			@if ($errors->has('barang_id'))
@@ -26,7 +29,7 @@
                                 <strong>{{ $errors->first('barang_id') }}</strong>
                             </span>
                         @endif
-			  		</div>
+			  		</div> -->
 
 			  		<div class="form-group {{ $errors->has('nama_pembeli') ? ' has-error' : '' }}">
 			  			<label class="control-label">Nama Pembeli</label>	
@@ -98,7 +101,7 @@
                         @endif
 			  		</div>
 
-			  		<div class="form-group {{ $errors->has('harga') ? ' has-error' : '' }}">
+<!-- 			  		<div class="form-group {{ $errors->has('harga') ? ' has-error' : '' }}">
 			  			<label class="control-label">harga</label>	
 			  			<input type="number" name="harga" class="form-control" value="{{ $Keluar->harga }}"  required>
 			  			@if ($errors->has('harga'))
@@ -106,10 +109,10 @@
                                 <strong>{{ $errors->first('harga') }}</strong>
                             </span>
                         @endif
-			  		</div>
+			  		</div> -->
 
 			  		<div class="form-group">
-			  			<button type="submit" class="btn btn-primary" id="sweetalert_demo_6">Selesai</button>
+			  			<button type="submit" class="btn btn-primary">Selesai</button>
 			  		</div>
 			  	</form>
 			  </div>

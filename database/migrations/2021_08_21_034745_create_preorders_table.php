@@ -15,10 +15,10 @@ class CreatePreordersTable extends Migration
     {
         Schema::create('preorders', function (Blueprint $table) {
             $table->id();
-            $table->string('nama');
-            $table->string('nama_barang');
+            $table->string('nama',50);
+            $table->string('nama_barang',50);
             $table->string('alamat');
-            $table->string('telp');
+            $table->string('telp',13);
             $table->date('tanggal_pemesanan');
             $table->integer('jumlah');
             $table->double('harga');

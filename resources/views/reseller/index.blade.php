@@ -39,7 +39,7 @@
                                                     <form action="{{ route('reseller.destroy', $data->id) }}"method="POST">
                                                     @csrf @method('delete')
                                                     <a href="{{ route('reseller.edit',$data->id) }}" class="btn btn-primary">Edit</a>
-                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Ingin Menghapus Data?')">Delete</button>
                                                     </form>
                                                     </td>
                                                 </tr>
@@ -55,6 +55,7 @@
             </div>
         </div>
     </div>
+    @include('sweetalert::alert')
 @endsection
 
 <!-- https://www.positronx.io/laravel-datatables-example/ -->

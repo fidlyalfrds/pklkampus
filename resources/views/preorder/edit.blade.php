@@ -96,7 +96,7 @@
 			  		</div>
 
 			  		<div class="form-group {{ $errors->has('jumlah_bayar') ? ' has-error' : '' }}">
-			  			<label class="control-label">jumlah_bayar</label>	
+			  			<label class="control-label">Jumlah Yang Dibayar</label>	
 			  			<input type="number" name="jumlah_bayar" class="form-control" value="{{ $Preorder->jumlah_bayar }}"  required>
 			  			@if ($errors->has('jumlah_bayar'))
                             <span class="help-block">
@@ -106,7 +106,7 @@
 			  		</div>
 
 			  		<div class="form-group">
-			  			<button type="submit" class="btn btn-primary" id="sweetalert_demo_6">Selesai</button>
+			  			<button type="submit" class="btn btn-primary">Selesai</button>
 			  		</div>
 			  	</form>
 			  </div>

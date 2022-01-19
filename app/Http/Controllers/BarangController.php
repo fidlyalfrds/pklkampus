@@ -20,6 +20,10 @@ class BarangController extends Controller
      */
     public function index(Request $request)
     {
+        // $Barang = barang::select('barangs.id','nama_barang','harga','size_s','size_m','size_l','size_xl','size_xxl','total_stock',
+        //     db::raw('(size_s) + (size_m) + (size_l) + (size_xl) + (size_xxl) as total_stock'))->get();
+        // return view('barang.index', compact('Barang'));
+
         $Barang = barang::select('barangs.id','nama_barang','harga','total_stock',
             db::raw('(barangs.size_s) - ifnull(barang_keluars.size_s,0) + ifnull(barang_masuks.size_s,0)  as size_s'),
             db::raw('(barangs.size_m) - ifnull(barang_keluars.size_m,0) + ifnull(barang_masuks.size_m,0)  as size_m'),
@@ -27,6 +31,7 @@ class BarangController extends Controller
             db::raw('(barangs.size_xl) - ifnull(barang_keluars.size_xl,0) + ifnull(barang_masuks.size_xl,0)  as size_xl'),
             db::raw('(barangs.size_xxl) - ifnull(barang_keluars.size_xxl,0) + ifnull(barang_masuks.size_xxl,0)  as size_xxl'),
             db::raw('(barangs.size_s) - ifnull(barang_keluars.size_s,0) + ifnull(barang_masuks.size_s,0) + (barangs.size_m) - ifnull(barang_keluars.size_m,0) + ifnull(barang_masuks.size_m,0) + (barangs.size_l) - ifnull(barang_keluars.size_l,0) + ifnull(barang_masuks.size_l,0) + (barangs.size_xl) - ifnull(barang_keluars.size_xl,0) + ifnull(barang_masuks.size_xl,0) + (barangs.size_xxl) - ifnull(barang_keluars.size_xxl,0) + ifnull(barang_masuks.size_xxl,0)    as total_stock'))
+
                 ->leftJoin(db::raw('(select barang_id, sum(size_s) size_s,
                 sum(size_m) size_m,
                 sum(size_l) size_l,
@@ -36,6 +41,7 @@ class BarangController extends Controller
                 function($join){
                     $join->on('barangs.id', '=', 'barang_keluars.barang_id');
                 })
+                
                 ->leftJoin(db::raw('(select barang_id, sum(size_s) size_s,
                 sum(size_m) size_m,
                 sum(size_l) size_l,
@@ -63,7 +69,7 @@ class BarangController extends Controller
     public function create()
     {
         $Barang = barang::all();
-        return view('barang.create',compact('Kategori','Barang'));
+        return view('barang.create',compact('Barang'));
     }
 
     /**
@@ -84,7 +90,7 @@ class BarangController extends Controller
         $Barang->size_xxl = $request->size_xxl;
         $Barang->total_stock = ($Barang->size_s + $Barang->size_m + $Barang->size_l + $Barang->size_xl + $Barang->size_xxl);
         $Barang->save();
-        return redirect()->route('barang.index');
+        return redirect()->route('barang.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     /**
@@ -122,11 +128,6 @@ class BarangController extends Controller
         $this->validate($request,[
         'nama_barang' => 'required',
         'harga' => 'required'
-        // 'size_s' => 'required',
-        // 'size_m' => 'required',
-        // 'size_l' => 'required',
-        // 'size_xl' => 'required',
-        // 'size_xxl' => 'required'
 
         ]);
         $Barang = barang::findOrFail($id);
@@ -134,7 +135,7 @@ class BarangController extends Controller
         $Barang->harga = $request->harga;
         $Barang->total_stock = ($Barang->size_s + $Barang->size_m + $Barang->size_l + $Barang->size_xl + $Barang->size_xxl);
         $Barang->save();
-        return redirect()->route('barang.index');
+        return redirect()->route('barang.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     /**

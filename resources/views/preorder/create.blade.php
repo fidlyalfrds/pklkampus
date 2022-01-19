@@ -93,7 +93,7 @@
             		</div>
 
             		<div class="form-group {{ $errors->has('jumlah_bayar') ? ' has-error' : '' }}">
-			  			<label class="control-label">jumlah_bayar</label>	
+			  			<label class="control-label">Jumlah Yang Di Bayar</label>	
 			  			<input type="number" name="jumlah_bayar" class="form-control"  required>
 			  			@if ($errors->has('jumlah_bayar'))
                             <span class="help-block">
@@ -103,7 +103,7 @@
 			  		</div>
 			  		
 			  		<div class="form-group">
-			  			<button type="button submit" class="btn btn-primary btn-rounded btn-floating" id="sweetalert_demo_6">Simpan</button>
+			  			<button type="button submit" class="btn btn-primary btn-rounded btn-floating">Simpan</button>
 			  			<button type="button" class="btn btn-secondary btn-rounded btn-floating clear-form">Clear</button>
 			  		</div>
 			  	</form>

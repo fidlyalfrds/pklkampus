@@ -54,7 +54,7 @@
 			  		</div>
 
 			  		<div class="form-group">
-			  			<button type="submit" class="btn btn-primary" id="sweetalert_demo_6">Selesai</button>
+			  			<button type="submit" class="btn btn-primary">Selesai</button>
 			  		</div>
 			  	</form>
 			  </div>

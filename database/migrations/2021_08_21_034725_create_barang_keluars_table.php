@@ -17,7 +17,7 @@ class CreateBarangKeluarsTable extends Migration
             $table->id();
             $table->unsignedBigInteger('barang_id')->nullable();
             $table->foreign('barang_id')->references('id')->on('barangs')->onDelete('CASCADE');
-            $table->string('nama_pembeli');
+            $table->string('nama_pembeli',50);
             $table->date('tanggal_pembelian');
             $table->integer('size_s');
             $table->integer('size_m');

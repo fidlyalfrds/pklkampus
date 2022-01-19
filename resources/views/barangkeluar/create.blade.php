@@ -27,7 +27,7 @@
 
 			  		<div class="form-group {{ $errors->has('nama_pembeli') ? ' has-error' : '' }}">
 			  			<label class="control-label">Nama Pembeli</label>	
-			  			<input type="text" name="nama_pembeli" class="form-control"  required>
+			  			<input type="text" name="nama_pembeli" class="form-control"  >
 			  			@if ($errors->has('nama_pembeli'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('nama_pembeli') }}</strong>
@@ -37,7 +37,7 @@
 
 			  		<div class="form-group {{ $errors->has('tanggal_pembelian') ? ' has-error' : '' }}">
 			  			<label class="control-label">Tanggal Pembelian</label>	
-			  			<input type="date" name="tanggal_pembelian" class="form-control"  required>
+			  			<input type="date" name="tanggal_pembelian" class="form-control"  >
 			  			@if ($errors->has('tanggal_pembelian'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('tanggal_pembelian') }}</strong>
@@ -47,7 +47,7 @@
 
 			  		<div class="form-group {{ $errors->has('size_s') ? ' has-error' : '' }}">
 			  			<label class="control-label">size_s</label>	
-			  			<input type="number" name="size_s" class="form-control"  required>
+			  			<input type="number" name="size_s" class="form-control"  >
 			  			@if ($errors->has('size_s'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('size_s') }}</strong>
@@ -57,7 +57,7 @@
 
 			  		<div class="form-group {{ $errors->has('size_m') ? ' has-error' : '' }}">
 			  			<label class="control-label">size_m</label>	
-			  			<input type="number" name="size_m" class="form-control"  required>
+			  			<input type="number" name="size_m" class="form-control"  >
 			  			@if ($errors->has('size_m'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('size_m') }}</strong>
@@ -67,7 +67,7 @@
 
 			  		<div class="form-group {{ $errors->has('size_l') ? ' has-error' : '' }}">
 			  			<label class="control-label">size_l</label>	
-			  			<input type="number" name="size_l" class="form-control"  required>
+			  			<input type="number" name="size_l" class="form-control"  >
 			  			@if ($errors->has('size_l'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('size_l') }}</strong>
@@ -77,7 +77,7 @@
 
 			  		<div class="form-group {{ $errors->has('size_xl') ? ' has-error' : '' }}">
 			  			<label class="control-label">size_xl</label>	
-			  			<input type="number" name="size_xl" class="form-control"  required>
+			  			<input type="number" name="size_xl" class="form-control"  >
 			  			@if ($errors->has('size_xl'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('size_xl') }}</strong>
@@ -87,7 +87,7 @@
 
 			  		<div class="form-group {{ $errors->has('size_xxl') ? ' has-error' : '' }}">
 			  			<label class="control-label">size_xxl</label>	
-			  			<input type="number" name="size_xxl" class="form-control"  required>
+			  			<input type="number" name="size_xxl" class="form-control"  >
 			  			@if ($errors->has('size_xxl'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('size_xxl') }}</strong>
@@ -96,7 +96,7 @@
 			  		</div>
 			  		
 			  		<div class="form-group">
-			  			<button type="submit" class="btn btn-primary" id="sweetalert_demo_6">Tambah</button>
+			  			<button type="submit" class="btn btn-primary">Tambah</button>
 			  			<button type="button" class="btn btn-secondary btn-rounded btn-floating clear-form">Clear</button>
 			  		</div>
 			  	</form>

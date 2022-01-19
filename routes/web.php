@@ -46,7 +46,7 @@ Route::get('exportbarang','BarangController@export');
 //Route Barang masuk
 Route::resource('barangmasuk','BarangMasukController');
 Route::get('/editbarangmasuk/{id}','BarangMasukController@edit')->name('editbarangmasuk');
-Route::get('/hapusbarangmasuk/{id}','BarangMasukController@destroy')->name('hapusbarangkeluar');
+Route::get('/hapusbarangmasuk/{id}','BarangMasukController@destroy')->name('hapusbarangmasuk');
 Route::get('exportmasuk','BarangMasukController@export');
 
 //Route Barang Keluar

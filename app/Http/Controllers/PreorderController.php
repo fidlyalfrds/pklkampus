@@ -84,7 +84,7 @@ class PreorderController extends Controller
         $Preorder->jumlah_bayar = $request->jumlah_bayar;
         $Preorder->sisa = ($Preorder->total - $Preorder->jumlah_bayar);
         $Preorder->save();
-        return redirect()->route('preorder.index');
+        return redirect()->route('preorder.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     /**
@@ -144,7 +144,7 @@ class PreorderController extends Controller
         $Preorder->jumlah_bayar = $request->jumlah_bayar;
         $Preorder->sisa = ($Preorder->total - $Preorder->jumlah_bayar);
         $Preorder->save();
-        return redirect()->route('preorder.index');
+        return redirect()->route('preorder.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     /**

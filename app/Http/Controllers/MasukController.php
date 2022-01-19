@@ -25,9 +25,9 @@ class MasukController extends Controller
                 session(['berhasil_login' => 'true']);
             // $request->session()->regenerate();
 
-            return redirect('dashboard');
+            return redirect('dashboard')->with('pesan', 'Login Berhasil !');;
         }
-        return back()->with('LoginError', 'Login Failed!');
+        return back()->with('LoginError', 'Login Gagal!');
     }
 
     	// $data = User::where('email',$request->email)->firstOrFail();

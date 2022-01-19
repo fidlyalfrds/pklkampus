@@ -86,7 +86,7 @@
 			  		</div>
 			  		
 			  		<div class="form-group">
-			  			<button type="submit" class="btn btn-primary" id="sweetalert_demo_6">Tambah</button>
+			  			<button type="submit" class="btn btn-primary">Tambah</button>
 			  			<button type="button" class="btn btn-secondary btn-rounded btn-floating clear-form">Clear</button>
 			  		</div>
 			  	</form>

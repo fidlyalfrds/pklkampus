@@ -63,6 +63,7 @@
             </div>
         </div>
     </div>
+    @include('sweetalert::alert')
 @endsection
 
 <!-- https://www.positronx.io/laravel-datatables-example/ -->

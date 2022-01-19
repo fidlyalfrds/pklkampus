@@ -47,6 +47,16 @@ class BarangMasukController extends Controller
     public function store(Request $request)
     {
         $Masuk = new barang_masuk;
+        $Barang = barang::where(['id' => $request['barang_id']])->first();
+        // if($Barang){
+        //     $S = $Barang->size_s + (int) $request->size_s;
+        //     $M = $Barang->size_m + (int) $request->size_m;
+        //     $L = $Barang->size_l + (int) $request->size_l;
+        //     $XL = $Barang->size_xl + (int) $request->size_xl;
+        //     $XXL = $Barang->size_xxl + (int) $request->size_xxl;
+        //     // $total = $Barang->total_stock + (int) $request->total_stock;
+        //     $Barang->update(['size_s' => $S, 'size_m' => $M, 'size_l' => $L, 'size_xl' => $XL, 'size_xxl' => $XXL]);
+        // }
         $Masuk->barang_id = $request->barang_id;
         $Masuk->tanggal_masuk = $request->tanggal_masuk;
         $Masuk->size_s = $request->size_s;
@@ -56,7 +66,7 @@ class BarangMasukController extends Controller
         $Masuk->size_xxl = $request->size_xxl;
         $Masuk->total_stock = ($Masuk->size_s + $Masuk->size_m + $Masuk->size_l + $Masuk->size_xl + $Masuk->size_xxl); 
         $Masuk->save();
-        return redirect()->route('barangmasuk.index');
+        return redirect()->route('barangmasuk.index')->with('success', 'Data Berhasil Disimpan');
     }
 
     /**
